@@ -1,9 +1,23 @@
 $(function(){
 //ON PAGE LOAD POPULATE THE TABLE FROM THE API FetchAll.php
+    $(fetchAssets)
+    $("#query").on("keyup", fetchAssets);
+    $("#searchby").on("change", fetchAssets);
+//END PAGE LOAD
+})
+function ShowMore(){
+    console.log("Show More Activated");
+}
+
+function fetchAssets(){
+    $("#AssetsTable tbody").empty();
+    var searchby = $("#searchby").val();
+    var query = $("#query").val();
     $.ajax({
       method: "GET",
       url: "/php/FetchAll.php",
       dataType: 'json',
+      data: {searchby:searchby, query:query}
     })
     .done(function( data ) {
         $.each(data, function(key, value){
@@ -19,9 +33,10 @@ $(function(){
             + "</tr>"
             );
         })
-    });
-//END PAGE LOAD
-})
-function ShowMore(){
-    console.log("Show More Activated");
+    })
+    .fail(function(jqXHR, textStatus, errorThrown){
+        $("#AssetsTable tbody").append(
+            "<p>Sorry No Results Found</p>"
+        );
+    })
 }

@@ -23,13 +23,13 @@ include 'php/functions.php';
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="/#assets">View Assets</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
+                  <a class="nav-link" href="/AddAsset.php">Add An Asset</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
@@ -39,38 +39,31 @@ include 'php/functions.php';
             </div>
           </nav>
           <div class="row">
-              <aside id="SideNavigationPanel">
-                   <ul id="SideNavigation">
-                    <li><a href="#Alerts">Alerts</a></li>
-                    <li><a href="#Assets">View Assets</a></li>
-                    <li><a href="/Addasset.php">Add Asset</a></li>
-                  </ul>
-              </aside>
               <section id="MainContentArea">
-                 <article id="Alerts">
-                    <h1 >Alerts</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                 </article>
-                 <article id="Assets">
-                     <header>
-                         <h1 >Vew Assets</h1>
-                     </header>
-                    <table class="table table-hover" id="AssetsTable">
-                    <thead class="thead">
-                        <tr>
-                            <th>AssetNo</th>
-                            <th>Type</th>
-                            <th>Added</th>
-                            <th>Location</th>
-                            <th>Registered User</th>
-                            <th>View Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                  <article id="Alerts">
+                     <h1 >Alerts</h1>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </article>
+                  <article id="Assets">
+                      <header>
+                          <h1 >Vew Assets</h1>
+                      </header>
+                     <table class="table table-hover" id="AssetsTable">
+                     <thead class="thead">
+                         <tr>
+                             <th>AssetNo</th>
+                             <th>Type</th>
+                             <th>Added</th>
+                             <th>Location</th>
+                             <th>Registered User</th>
+                             <th>View Details</th>
+                         </tr>
+                     </thead>
+                     <tbody>
 
-                    </tbody>
-                    </table>
-                 </article>
+                     </tbody>
+                     </table>
+                  </article>
               </section>
           </div>
       </div>
@@ -78,6 +71,6 @@ include 'php/functions.php';
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/myjs.js"></script>
+    <script type="text/javascript" src="/js/myjs.js" ></script>
   </body>
 </html>

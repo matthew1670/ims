@@ -1,84 +1,20 @@
-#MainContentArea{
-    position: relative;
+section{
+    @include make-row;
 }
-//Make navbar full width
-#Navbar{
-    margin-left:-15px;
-    margin-right:-15px;
-}
-
-#SideNavigationPanel{
-    //BOOTSTRAP COLLUMN STYLING
-    @include make-col-ready();
-    @include media-breakpoint-up(xs) {
-      @include make-col(12);
-    }
-    @include media-breakpoint-up(sm) {
-      @include make-col(4);
-      height:calc(100Vh - 60px);
-     }
-    @include media-breakpoint-up(md) {
-      @include make-col(3);
-     }
-    @include media-breakpoint-up(lg) {
-      @include make-col(2);
-     }
-
-    //Sidebar Styling
-    background-color: $offwhite;
-
-    //List Item Styling
-    ul{
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li{
-            text-align: left;
-            a{
-                display: block;
-                padding: 1em;
-                margin-bottom: 0.5em;
-                margin-left:-15px;
-                margin-right:-15px;
-            &:hover{
-                background-color: $lighterblue;
-                color:$white;
-            }
-            }
-        }
-    }
-}
-
-
-#MainContentArea{
-    @include make-col-ready();
-    @include media-breakpoint-up(xs) {
-      @include make-col(12);
-    }
-    @include media-breakpoint-up(sm) {
-      @include make-col(8);
-      height:calc(100Vh - 60px);
-      overflow-y: auto;
-      }
-    @include media-breakpoint-up(md) {
-      @include make-col(9);
-     }
-    @include media-breakpoint-up(lg) {
-      @include make-col(10);
-     }
-    overflow-y: scroll;
-}
-
 article{
     @include make-col-ready();
     @include make-col(12);
 }
 
+//Form Styling
 #addAssetForm{
-    @include make-row();
+    .form-group{
+        @include make-row();
+    }
     label{
         @include make-col-ready();
         @include make-col(12);
+        font-weight: bolder;
         @include media-breakpoint-up(sm) {
             @include make-col(6);
         }
@@ -95,5 +31,8 @@ article{
         @include media-breakpoint-up(md) {
             @include make-col(9);
         }
+    }
+    input[type="Submit"]{
+        @include make-col(12);
     }
 }

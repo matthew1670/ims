@@ -23,13 +23,13 @@ include 'php/functions.php';
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="/#assets">View Assets</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
+                  <a class="nav-link" href="/AddAsset.php">Add An Asset</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
@@ -39,13 +39,6 @@ include 'php/functions.php';
             </div>
           </nav>
           <div class="row">
-              <aside id="SideNavigationPanel">
-                   <ul id="SideNavigation">
-                    <li><a href="/index.php#Alerts">Alerts</a></li>
-                    <li><a href="/index.php#Assets">View Assets</a></li>
-                    <li><a href="/Addasset.php">Add Asset</a></li>
-                  </ul>
-              </aside>
               <section id="MainContentArea">
                  <article id="Alerts">
                     <h1 >Add An Asset</h1>
@@ -63,10 +56,32 @@ include 'php/functions.php';
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for=""></label>
+                            <label for="Make">Make</label>
+                            <input type="text" name="Make" value="" class="form-control">
                         </div>
-
-
+                        <div class="form-group">
+                            <label for="Make">model</label>
+                            <input type="text" name="Make" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="Make">Added On</label>
+                            <input type="text" name="Make" value="<?php echo date('d/m/Y H:i:s'); ?>" class="form-control" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="Location">Location</label>
+                            <input type="text" name="Location" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="PatTest">PatTested Date</label>
+                            <input type="date" name="PatTest" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="User">associated To</label>
+                            <input type="text" name="User" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="form-control btn-primary" value="Submit" />
+                        </div>
                     </form>
                  </article>
 

@@ -23,61 +23,63 @@ include 'php/functions.php';
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="/#assets">View Assets</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
+                  <a class="nav-link" href="/AddAsset.php">Add An Asset</a>
                 </li>
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
             </div>
           </nav>
-          <div class="row">
-              <aside id="SideNavigationPanel">
-                   <ul id="SideNavigation">
-                    <li><a href="#Alerts">Alerts</a></li>
-                    <li><a href="#Assets">View Assets</a></li>
-                    <li><a href="/Addasset.php">Add Asset</a></li>
-                  </ul>
-              </aside>
               <section id="MainContentArea">
-                 <article id="Alerts">
-                    <h1 >Alerts</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                 </article>
-                 <article id="Assets">
-                     <header>
-                         <h1 >Vew Assets</h1>
-                     </header>
-                    <table class="table table-hover" id="AssetsTable">
-                    <thead class="thead">
-                        <tr>
-                            <th>AssetNo</th>
-                            <th>Type</th>
-                            <th>Added</th>
-                            <th>Location</th>
-                            <th>Registered User</th>
-                            <th>View Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                    </table>
-                 </article>
+                  <article id="Alerts">
+                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                         <h1 class="alert-heading">Attention</h1>
+                         <p>You have Items that need looking at.</p>
+                    </div>
+                  </article>
+                  <article id="Assets">
+                      <header>
+                          <h1>Vew Assets</h1>
+                          <form class="form-inline my-2 my-lg-0">
+                            <select class="form-control mr-sm-2" name="searchby" id="searchby">
+                                <option value="">Seclect a Search critera</option>
+                                <option value="user">User</option>
+                                <option value="location">location</option>
+                                <option value="type">type</option>
+                                <option value="assetno">asset Number</option>
+                            </select>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" id="query" name="query">
+                          </form>
+                      </header>
+                     <table class="table table-hover" id="AssetsTable">
+                     <thead class="thead">
+                         <tr>
+                             <th>AssetNo</th>
+                             <th>Type</th>
+                             <th>Added</th>
+                             <th>Location</th>
+                             <th>Registered User</th>
+                             <th>View Details</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <!-- All Assets Are Shown Here By Default By JS Script -->
+                     </tbody>
+                     </table>
+                  </article>
               </section>
           </div>
-      </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/myjs.js"></script>
+    <script type="text/javascript" src="/js/myjs.js" ></script>
   </body>
 </html>

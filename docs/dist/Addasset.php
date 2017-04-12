@@ -41,36 +41,35 @@ include 'php/functions.php';
           <div class="row">
               <aside id="SideNavigationPanel">
                    <ul id="SideNavigation">
-                    <li><a href="#Alerts">Alerts</a></li>
-                    <li><a href="#Assets">View Assets</a></li>
+                    <li><a href="/index.php#Alerts">Alerts</a></li>
+                    <li><a href="/index.php#Assets">View Assets</a></li>
                     <li><a href="/Addasset.php">Add Asset</a></li>
                   </ul>
               </aside>
               <section id="MainContentArea">
                  <article id="Alerts">
-                    <h1 >Alerts</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                 </article>
-                 <article id="Assets">
-                     <header>
-                         <h1 >Vew Assets</h1>
-                     </header>
-                    <table class="table table-hover" id="AssetsTable">
-                    <thead class="thead">
-                        <tr>
-                            <th>AssetNo</th>
-                            <th>Type</th>
-                            <th>Added</th>
-                            <th>Location</th>
-                            <th>Registered User</th>
-                            <th>View Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <h1 >Add An Asset</h1>
+                    <form method="post" id="addAssetForm">
+                        <div class="form-group">
+                            <label for="Assetno">Asset Number</label>
+                            <input type="text" name="Assetno" class="form-control" placeholder="Asset Number" />
+                        </div>
+                        <div class="form-group">
+                            <label for="assettype">Asset type</label>
+                            <select class="form-control" name="assettype">
+                                <option value="Desktop">Desktop</option>
+                                <option value="Laptop">Laptop</option>
+                                <option value="HDD">Hard Drive</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for=""></label>
+                        </div>
 
-                    </tbody>
-                    </table>
+
+                    </form>
                  </article>
+
               </section>
           </div>
       </div>
@@ -78,6 +77,5 @@ include 'php/functions.php';
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/myjs.js"></script>
   </body>
 </html>

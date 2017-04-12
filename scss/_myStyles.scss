@@ -73,3 +73,27 @@ article{
     @include make-col-ready();
     @include make-col(12);
 }
+
+#addAssetForm{
+    @include make-row();
+    label{
+        @include make-col-ready();
+        @include make-col(12);
+        @include media-breakpoint-up(sm) {
+            @include make-col(6);
+        }
+        @include media-breakpoint-up(md) {
+            @include make-col(3);
+        }
+    }
+    input,select{
+        @include make-col-ready();
+        @include make-col(12);
+        @include media-breakpoint-up(sm) {
+            @include make-col(6);
+        }
+        @include media-breakpoint-up(md) {
+            @include make-col(9);
+        }
+    }
+}

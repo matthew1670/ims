@@ -60,12 +60,12 @@ include 'php/functions.php';
                             <input type="text" name="Make" value="" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="Make">model</label>
-                            <input type="text" name="Make" value="" class="form-control">
+                            <label for="Model">model</label>
+                            <input type="text" name="Model" value="" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="Make">Added On</label>
-                            <input type="text" name="Make" value="<?php echo date('d/m/Y H:i:s'); ?>" class="form-control" readonly="readonly"/>
+                            <label for="AddedOn">Added On</label>
+                            <input type="text" name="AddedOn" value="<?php echo date('d/m/Y H:i:s'); ?>" class="form-control" readonly="readonly"/>
                         </div>
                         <div class="form-group">
                             <label for="Location">Location</label>

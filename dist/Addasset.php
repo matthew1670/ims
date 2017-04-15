@@ -64,10 +64,6 @@ include 'php/functions.php';
                             <input type="text" name="Model" value="" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="AddedOn">Added On</label>
-                            <input type="text" name="AddedOn" value="<?php echo date('d/m/Y H:i:s'); ?>" class="form-control" readonly="readonly"/>
-                        </div>
-                        <div class="form-group">
                             <label for="Location">Location</label>
                             <input type="text" name="Location" class="form-control" />
                         </div>
@@ -92,5 +88,6 @@ include 'php/functions.php';
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/myjs.js"></script>
   </body>
 </html>

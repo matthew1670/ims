@@ -1,4 +1,5 @@
 $(function(){
+    console.log("Javacript Loaded");
 //ON PAGE LOAD POPULATE THE TABLE FROM THE API FetchAll.php
     $(fetchAssets)
     $("#query").on("keyup", fetchAssets);
@@ -38,5 +39,10 @@ function fetchAssets(){
         $("#AssetsTable tbody").append(
             "<p>Sorry No Results Found</p>"
         );
-    })
+    });
+
+$("#addAssetForm").submit(function(e){
+    e.preventDefault();
+    console.log("Form Submited");
+})
 }

@@ -1,6 +1,20 @@
 <?php
+/*
+API NAME = FETCH FROM DB
+API FUNCTION = this api functions to add a new asset to the assets table
+checking the following:
+>What type of query is being requested.
+> Request is GET request
+> if success sql retrival or failed
+Finally retuning the data in JSON format.
+*/
 header("Content-type: application/json");
 require '../php/functions.php';
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+        header("HTTP/1.0 400 Bad Request");
+        exit();
+}
+
 $searchby = "";
 $query = "";
 if(isset($_GET['searchby'])) {

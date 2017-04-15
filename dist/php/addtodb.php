@@ -1,6 +1,6 @@
 <?php
 /*
-API NAME = add to DB
+API NAME = ADD TO DB
 API FUNCTION = this api functions to add a new asset to the assets table
 checking the following:
 > Request is POST request

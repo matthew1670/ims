@@ -40,9 +40,10 @@ function fetchAssets(){
             "<p>Sorry No Results Found</p>"
         );
     });
-
+// ADD ASSET FORM JAVASCRIPT AJAX SUBMIT and verification
 $("#addAssetForm").submit(function(e){
     e.preventDefault();
     console.log("Form Submited");
 })
+
 }

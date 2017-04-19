@@ -57,6 +57,20 @@ $("#addAssetForm").submit(function(e){
         console.log($('#addAssetForm').serialize());
     })
     .fail(function(jqXHR, textStatus, errorThrown){
-        console.log(jqXHR.status);
+        var errorMsg;
+        switch (jqXHR.status) {
+            case 409:
+                errorMsg = "Asset Already in The DB";
+                break;
+            case 400:
+                errorMsg = "Bad Request Try Again.";
+                break;
+            default:
+                errorMsg = "Server Error";
+                break;
+            }
+
+        $("#errorArea").show();
+        $("#errorArea").html(errorMsg);
     });
 });

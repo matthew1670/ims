@@ -16,6 +16,7 @@ require '../php/functions.php';
 $AssetNo = $_POST["Assetno"];
 $AssetType = $_POST["assettype"];
 $AssetMake = $_POST["Make"];
+$AssetMake = $_POST["Make"];
 $AssetModel = $_POST["Model"];
 $AssetLocation = $_POST["Location"];
 $AssetPatTest = $_POST["PatTest"];
@@ -28,6 +29,9 @@ $Values = array('Number' => $AssetNo,
                 'Location' => $AssetLocation,
                 'Pat Test Date' => $AssetPatTest,
                 'Associated User' => $AssetUser);
+//CREATE CONNECTION TO DB
+    $conn = connect();
+
 //ERRORS BOOLEN DEFAULT TO FALSE
 $error = false;
 //CHECK IF ANY POSTED VARIABLES ARE BLANK FROM THE VALUES ARRAY
@@ -38,6 +42,19 @@ foreach ($Values as $variable => $value) {
         $error = true;
     }
 }
+
+//CHECK IF ASSET NUMBER ALREADY IN USE IN THE DB
+$sql = "SELECT * FROM assets WHERE assetNo = :id";
+$sth = $conn->prepare($sql);
+$sth->bindParam(':id', $AssetNo);
+$sth->execute();
+//Count the results returned IF 1 or more Tell Client Conflict.
+if ($sth->rowCount() >= 1){
+    header("HTTP/1.0 409 Conflict");
+    exit();
+}
+
+
 //IF ANY ERRORS IN PRE SQL CHECKS
 //RETURN 400 BAD REQUEST
 //RETURN Json CONTAINING errors.
@@ -49,8 +66,6 @@ if ($error){
     exit();
 }
 else{
-//CREATE CONNECTION TO DB
-    $conn = connect();
 //SET PARAMS FOR THE PREPARED STATEMENT
     $Params = array(
                 ":assetnumber" => $AssetNo,

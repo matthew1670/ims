@@ -12,6 +12,14 @@ function connect(){
     }
 }
 
+//Function to Check If User is logged in.
+function Login_Check(){
+    if (!isset($_COOKIE['logged_In'])) {
+        header('Location: /login.php');
+    }
+}
+
+//DEVELOPMENT FUNCTIONS
 function CreateAssetsTable($conn){
     try {
         $sql = "CREATE TABLE assets(

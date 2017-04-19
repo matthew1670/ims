@@ -38,12 +38,25 @@ function fetchAssets(){
     .fail(function(jqXHR, textStatus, errorThrown){
         $("#AssetsTable tbody").append(
             "<p>Sorry No Results Found</p>"
-        );
+        )
     });
+};
 // ADD ASSET FORM JAVASCRIPT AJAX SUBMIT and verification
+
+
+
 $("#addAssetForm").submit(function(e){
     e.preventDefault();
     console.log("Form Submited");
-})
-
-}
+    $.ajax({
+        method: "POST",
+        url: "/php/addtodb.php",
+        data: $('#addAssetForm').serialize()
+    })
+    .done(function(data){
+        console.log($('#addAssetForm').serialize());
+    })
+    .fail(function(jqXHR, textStatus, errorThrown){
+        console.log(jqXHR.status);
+    });
+});

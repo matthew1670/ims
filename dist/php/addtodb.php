@@ -29,8 +29,11 @@ $Values = array('Number' => $AssetNo,
                 'Location' => $AssetLocation,
                 'Pat Test Date' => $AssetPatTest,
                 'Associated User' => $AssetUser);
-//CREATE CONNECTION TO DB
-    $conn = connect();
+//CREATE CONNECTION TO DB return service unavaliable if faile to connect.
+if (! $conn = connect()){
+    header("HTTP/1.0 503 service unavailable");
+    exit();
+}
 
 //ERRORS BOOLEN DEFAULT TO FALSE
 $error = false;

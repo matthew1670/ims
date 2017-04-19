@@ -54,23 +54,23 @@ $("#addAssetForm").submit(function(e){
         data: $('#addAssetForm').serialize()
     })
     .done(function(data){
-        console.log($('#addAssetForm').serialize());
+        $("#errorArea").hide("fast").removeClass("alert-warning").addClass("alert-success").show("slow").html("Asset Has Been added to the System");
+        $("#addAssetForm").trigger("reset");
     })
     .fail(function(jqXHR, textStatus, errorThrown){
         var errorMsg;
         switch (jqXHR.status) {
             case 409:
-                errorMsg = "Asset Already in The DB";
+                errorMsg = "<strong>Asset is already registeed in the system </strong></br> Please Check the asset number is correct.";
                 break;
             case 400:
-                errorMsg = "Bad Request Try Again.";
+                errorMsg = "<strong>Bad Request Please Try Again.</strong><br/> If the problem persists then contact the system administrator";
                 break;
             default:
-                errorMsg = "Server Error";
+                errorMsg = "<strong>Server Error Please Try again later </strong><br/> If the problem persists then contact the system administrator";
                 break;
             }
-
-        $("#errorArea").show();
+        $("#errorArea").hide("fast").removeClass(" alert-success").addClass(" alert-warning").show("slow");
         $("#errorArea").html(errorMsg);
     });
 });

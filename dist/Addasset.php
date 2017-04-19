@@ -42,7 +42,7 @@ include 'php/functions.php';
               <section id="MainContentArea">
                  <article>
                     <h1 >Add An Asset</h1>
-                    <div id="errorArea" class="alert alert-warning" style="display:none;"></div>
+                    <div id="errorArea" class="alert" style="display:none;"></div>
                     <form method="post" id="addAssetForm">
                         <div class="form-group">
                             <label for="Assetno">Asset Number</label>

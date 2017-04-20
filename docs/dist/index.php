@@ -32,21 +32,31 @@ include 'php/functions.php';
                   <a class="nav-link" href="/AddAsset.php">Add An Asset</a>
                 </li>
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
             </div>
           </nav>
-          <div class="row">
-              <section id="MainContentArea">
+              <section id="MainContentArea" class="full-width">
                   <article id="Alerts">
-                     <h1 >Alerts</h1>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                         <h1 class="alert-heading">Attention</h1>
+                         <p>You have Items that need looking at.</p>
+                    </div>
                   </article>
                   <article id="Assets">
                       <header>
-                          <h1 >Vew Assets</h1>
+                          <h1>Vew Assets</h1>
+                          <form class="form-inline my-2 my-lg-0">
+                            <select class="form-control mr-sm-2" name="searchby" id="searchby">
+                                <option value="">Seclect a Search critera</option>
+                                <option value="user">User</option>
+                                <option value="location">location</option>
+                                <option value="type">type</option>
+                                <option value="assetno">asset Number</option>
+                            </select>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" id="query" name="query">
+                          </form>
                       </header>
                      <table class="table table-hover" id="AssetsTable">
                      <thead class="thead">
@@ -60,13 +70,12 @@ include 'php/functions.php';
                          </tr>
                      </thead>
                      <tbody>
-
+                         <!-- All Assets Are Shown Here By Default By JS Script -->
                      </tbody>
                      </table>
                   </article>
               </section>
           </div>
-      </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

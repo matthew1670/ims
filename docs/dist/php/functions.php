@@ -12,6 +12,19 @@ function connect(){
     }
 }
 
+//Function to Check If User is logged in.
+function Login_Check(){
+    if (!isset($_COOKIE['logged_In'])) {
+        header('Location: /login.php');
+    }
+}
+
+function logout(){
+    unset($_COOKIE["logged_In"]);
+    header('Location: /login.php');
+}
+
+//DEVELOPMENT FUNCTIONS
 function CreateAssetsTable($conn){
     try {
         $sql = "CREATE TABLE assets(
@@ -63,4 +76,22 @@ function PopulateAssets($conn){
     }
 
 }
+
+function addDefaultAdminUser(){
+    $password = md5("Matthew");
+    $conn = connect();
+    $sql = "INSERT INTO users (`FirstName` , `LastName`, `Email`, `Username`, `Password`, `Admin`)
+        VALUES (:Fname, :Lname, :Email, :Username, :Password , :Admin)";
+    $params = array(':Fname' => "Matthew",
+                    ':Lname' => "Wood",
+                    ':Email' => "Matthew@me.com",
+                    ':Username' => "Mwood",
+                    ':Password' => "$password",
+                    ':Admin' => "1"
+                    );
+    $sth = $conn->prepare($sql);
+    $sth->execute($params);
+}
+
+
 ?>

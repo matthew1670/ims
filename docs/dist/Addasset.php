@@ -38,59 +38,67 @@ include 'php/functions.php';
               </form>
             </div>
           </nav>
-          <div class="row">
-              <section id="MainContentArea">
-                 <article id="Alerts">
-                    <h1 >Add An Asset</h1>
-                    <form method="post" id="addAssetForm">
-                        <div class="form-group">
-                            <label for="Assetno">Asset Number</label>
-                            <input type="text" name="Assetno" class="form-control" placeholder="Asset Number" />
-                        </div>
-                        <div class="form-group">
-                            <label for="assettype">Asset type</label>
-                            <select class="form-control" name="assettype">
-                                <option value="Desktop">Desktop</option>
-                                <option value="Laptop">Laptop</option>
-                                <option value="HDD">Hard Drive</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="Make">Make</label>
-                            <input type="text" name="Make" value="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="Make">model</label>
-                            <input type="text" name="Make" value="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="Make">Added On</label>
-                            <input type="text" name="Make" value="<?php echo date('d/m/Y H:i:s'); ?>" class="form-control" readonly="readonly"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="Location">Location</label>
-                            <input type="text" name="Location" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="PatTest">PatTested Date</label>
-                            <input type="date" name="PatTest" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="User">associated To</label>
-                            <input type="text" name="User" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="form-control btn-primary" value="Submit" />
-                        </div>
-                    </form>
-                 </article>
-
-              </section>
+          <div id="contain">
+              <div class="row">
+                  <section id="MainContentArea">
+                     <article>
+                        <h1 >Add An Asset</h1>
+                        <div id="errorArea" class="alert" style="display:none;"></div>
+                        <form method="post" id="addAssetForm">
+                            <div class="form-group">
+                                <label for="Assetno">Asset Number</label>
+                                <input type="text" name="Assetno" class="form-control" placeholder="Asset Number" required  pattern="^[0-9]*$"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="assettype">Asset type</label>
+                                <select class="form-control" name="assettype">
+                                    <option value="Desktop">Desktop</option>
+                                    <option value="Laptop">Laptop</option>
+                                    <option value="HDD">Hard Drive</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Make">Make</label>
+                                <input type="text" name="Make" value="" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="Model">model</label>
+                                <input type="text" name="Model" value="" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="Location">Location</label>
+                                <input type="text" name="Location" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="PatTest">PatTested Date</label>
+                                <input type="date" name="PatTest" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="User">associated To</label>
+                                <input type="text" name="User" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="form-control btn-primary" value="Submit" />
+                            </div>
+                        </form>
+                     </article>
+                  </section>
+                  <aside class="Helper" id="Sidebar">
+                      <p><strong>Asset Number:</strong>This is the number associated to the Asset.</p>
+                      <p><strong>Asset Type:</strong>Defines what type the asset is.</p>
+                      <p><strong>Make:</strong>What is the make of the Asset?</p>
+                      <p><strong>Model:</strong>What is the Model of the Asset?</p>
+                      <p><strong>Locaion:</strong>Where is the Asset Located?</p>
+                      <p><strong>PatTested Date:</strong>When was the device last PAT tested?</p>
+                      <p><strong>Associated To:</strong>Who is the asset associated to?</p>
+                  </aside>
+              </div>
           </div>
       </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/myjs.js"></script>
   </body>
 </html>

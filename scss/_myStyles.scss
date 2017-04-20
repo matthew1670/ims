@@ -1,6 +1,46 @@
-section{
-    @include make-row;
+
+#contain{
+    max-width: 100em;
+    @include make-container();
 }
+
+#MainContentArea{
+    @include make-col-ready();
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(9);
+    }
+    &.full-width{
+        @include media-breakpoint-up(xs) {
+            @include make-col(12);
+        }
+    }
+}
+
+#Sidebar{
+    @include make-col-ready();
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(3);
+    }
+    &.Helper{
+        text-align: justify;
+        @include media-breakpoint-down(sm){
+            border-top:1px solid $blue;
+        }
+        @include media-breakpoint-up(md) {
+            border-left:1px solid $blue;
+            margin-top:$font-size-h1;
+            strong{
+                display: block;
+            }
+        }
+        strong{
+            margin-right:1em;
+        }
+    }
+}
+
 article{
     @include make-col-ready();
     @include make-col(12);

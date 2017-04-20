@@ -2,11 +2,14 @@
 include('include.php');
 function navigation(){
     echo '
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded row" id="Navbar">
+    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded row" id="Navbar">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">IMS</a>
+      <a class="navbar-brand" href="/">
+         <img src="/img/logo-initials.png" class="img-fluid">
+          <span class="hidden-md-up">Asset Managment System</span>
+        </a>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">

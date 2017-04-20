@@ -16,9 +16,10 @@ if(Login_Check()){
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
-            <body data-spy="scroll" data-target="#SideNavigation" data-offset="50" id="LoginPage">
+            <body id="LoginPage">
                 <div class="container-fluid">
-                    <form class="loginform" action="/php/login.php" method="post">
+                    <div class="loginbox row justify-content-center align-items-center">
+                        <form class="loginform" action="/php/login.php" method="post">
                             <div class="logo">
                               <img src="/img/logo-Initials.png" class="img-fluid logo">
                               <p>Asset Managment System</p>
@@ -37,6 +38,7 @@ if(Login_Check()){
                             </div>
                             <p>Dont have an account <a href="#">Register here</a></p>
                         </form>
+                    </div>
                 </div>
         <?php footer();?>
     </body>

@@ -7,20 +7,38 @@ body#LoginPage{
         background-position: top center;
         background-repeat: no-repeat;
 }
-
-.logo {
+//Logo On Login Page.
+.logo{
     text-align: center;
-    img {
+    img{
         max-width: 200px;
         width: 100%;
         padding: 0.5em 0.5em 0;
     }
-    p {
+    p{
         font-size: 2.7em;
         line-height: 1.1;
         display: block;
     }
-
+    @include media-breakpoint-only(xs){
+        img{
+            margin-top:2em;
+        }
+        p{
+            font-size: 2em;
+        }
+    }
+}
+.navbar-brand{
+    text-align: center;
+    img {
+        max-height: 55px;
+        padding: 0;
+        margin: 0;
+    }
+    span {
+        display: block;
+    }
 }
 
 #contain{

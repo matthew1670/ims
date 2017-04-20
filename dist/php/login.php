@@ -14,7 +14,7 @@ if (! $conn = connect()){
     exit();
 }
 
-$sql = "SELECT * FROM users WHERE username = :user AND password = :pass";
+$sql = "SELECT * FROM users WHERE Email = :user AND Password = :pass";
 $params = array(':user' => $user,
                 ':pass' => $pass
                 );

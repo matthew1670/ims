@@ -1,15 +1,15 @@
 <?php
 require '../php/functions.php';
 //Check if can connect to server
-    if (! $conn = connect()){
-        header("HTTP/1.0 503 service unavailable");
-        exit();
-    }
+if (! $conn = connect()){
+    header("HTTP/1.0 503 service unavailable");
+    exit();
+}
 //Check if Request is correct type
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header("HTTP/1.0 400 Bad Request");
-            exit();
-    }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header("HTTP/1.0 400 Bad Request");
+        exit();
+}
 $Fname = $_POST["FirstName"];
 $Lname = $_POST["LastName"];
 $Email = $_POST["Email"];
@@ -22,6 +22,7 @@ $Values = array('First Name' => $Fname,
                 'Email' => $Email,
                 'Password' => $password
             );
+
 $error = FALSE;
 foreach ($Values as $variable => $value) {
     if (!isset($variable) or empty($value)){
@@ -34,7 +35,7 @@ foreach ($Values as $variable => $value) {
 $sql = "SELECT * FROM users WHERE Email = :Email";
 $sth = $conn->prepare($sql);
 $sth->bindParam(':Email', $Email);
-$stmt->execute();
+$sth->execute();
 if ($sth->rowCount() >= 1){
     header("HTTP/1.0 409 Conflict");
     exit();
@@ -49,13 +50,15 @@ if ($error){
 }
 else{
     $sql = "INSERT INTO users (`FirstName` , `LastName`, `Email`, `Password`)
-        VALUES (:Fname, :Lname, :Email, :Username, :Password)";
+        VALUES (:Fname, :Lname, :Email, :Password)";
     $params = array(':Fname' => "$Fname",
                     ':Lname' => "$Lname",
                     ':Email' => "$Email",
                     ':Password' => "$password"
                     );
     $sth = $conn->prepare($sql);
-    $sth->execute($params);
+    if($sth->execute($params)){
+        header("HTTP/1.0 201 Created");
+    }
 }
-    ?>
+?>

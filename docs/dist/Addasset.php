@@ -14,7 +14,7 @@ include 'php/functions.php';
   </head>
   <body data-spy="scroll" data-target="#SideNavigation" data-offset="50">
       <div class="container-fluid">
-          <nav class="navbar navbar-toggleable-md navbar-light bg-faded" id="Navbar">
+          <nav class="navbar navbar-toggleable-md navbar-light bg-faded row" id="Navbar">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,9 +26,6 @@ include 'php/functions.php';
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/#assets">View Assets</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="/AddAsset.php">Add An Asset</a>
                 </li>
               </ul>
@@ -38,8 +35,7 @@ include 'php/functions.php';
               </form>
             </div>
           </nav>
-          <div id="contain">
-              <div class="row">
+          <div id="contain" class="row">
                   <section id="MainContentArea">
                      <article>
                         <h1 >Add An Asset</h1>

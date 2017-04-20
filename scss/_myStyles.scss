@@ -1,3 +1,27 @@
+html,body,.container-fluid{
+    height: 100%;
+}
+body#LoginPage{
+        background-image: url("/img/1511.jpg");
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+}
+
+.logo {
+    text-align: center;
+    img {
+        max-width: 200px;
+        width: 100%;
+        padding: 0.5em 0.5em 0;
+    }
+    p {
+        font-size: 2.7em;
+        line-height: 1.1;
+        display: block;
+    }
+
+}
 
 #contain{
     max-width: 100em;
@@ -75,4 +99,24 @@ article{
     input[type="Submit"]{
         @include make-col(12);
     }
+}
+
+.loginbox{
+    height:100%;
+}
+.loginform{
+    @include make-col-ready();
+    @include make-col(12);
+    @include media-breakpoint-up(sm) {
+        @include make-col(8);
+    }
+    @include media-breakpoint-up(md) {
+        @include make-col(6);
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(4);
+    }
+    background-color: rgba(255,255,255,0.7);
+    padding: 2em 1em;
+    border-radius: 0.2em;
 }

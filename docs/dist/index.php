@@ -14,7 +14,7 @@ include 'php/functions.php';
   </head>
   <body data-spy="scroll" data-target="#SideNavigation" data-offset="50">
       <div class="container-fluid">
-          <nav class="navbar navbar-toggleable-md navbar-light bg-faded" id="Navbar">
+          <nav class="navbar navbar-toggleable-md navbar-light bg-faded row" id="Navbar">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,9 +24,6 @@ include 'php/functions.php';
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/#assets">View Assets</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/AddAsset.php">Add An Asset</a>
@@ -58,6 +55,7 @@ include 'php/functions.php';
                             <input class="form-control mr-sm-2" type="text" placeholder="Search" id="query" name="query">
                           </form>
                       </header>
+                      <div class="table-responsive">
                      <table class="table table-hover" id="AssetsTable">
                      <thead class="thead">
                          <tr>
@@ -73,6 +71,7 @@ include 'php/functions.php';
                          <!-- All Assets Are Shown Here By Default By JS Script -->
                      </tbody>
                      </table>
+                 </div>
                   </article>
               </section>
           </div>

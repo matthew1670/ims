@@ -9328,6 +9328,22 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   }
 }
 
+html, body, .container-fluid {
+  height: 100%;
+}
+
+body#LoginPage {
+  background-image: url("/img/1511.jpg");
+  -webkit-background-size: cover;
+          background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.nav-bg {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 #contain {
   max-width: 100em;
   position: relative;
@@ -9709,5 +9725,83 @@ article {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
   max-width: 100%;
+}
+
+.loginbox {
+  height: 100%;
+}
+
+.loginform {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2em 1em;
+  border-radius: 0.2em;
+}
+
+@media (min-width: 576px) {
+  .loginform {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .loginform {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .loginform {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .loginform {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 576px) {
+  .loginform {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.666667%;
+        -ms-flex: 0 0 66.666667%;
+            flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width: 768px) {
+  .loginform {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .loginform {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.333333%;
+        -ms-flex: 0 0 33.333333%;
+            flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
 }
 /*# sourceMappingURL=bootstrap.css.map */

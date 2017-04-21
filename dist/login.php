@@ -1,5 +1,6 @@
 <?php
-require '/php/functions.php';
+ini_set('display_errors', 1);
+require $_SERVER['DOCUMENT_ROOT'].'/php/functions.php';
 if(Login_Check()){
     header("Location: /index.php");
     exit();

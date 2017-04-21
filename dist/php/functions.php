@@ -7,7 +7,7 @@ function navigation(){
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="/">
-         <img src="/img/logo-initials.png" class="img-fluid">
+         <img src="/img/logo-Initials.png" class="img-fluid">
           <span class="hidden-md-up">Asset Managment System</span>
         </a>
 

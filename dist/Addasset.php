@@ -1,5 +1,5 @@
 <?php
-include 'php/functions.php';
+require $_SERVER['DOCUMENT_ROOT'].'/php/functions.php';
 if(!Login_Check()){
     header("Location: /login.php");
     exit();

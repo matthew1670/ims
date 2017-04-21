@@ -19,6 +19,9 @@ function navigation(){
           <li class="nav-item">
             <a class="nav-link" href="/AddAsset.php">Add An Asset</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/php/logout.php">Log Out</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -53,11 +56,6 @@ function Login_Check(){
     }
 }
 
-function logout(){
-    unset($_COOKIE["logged_In"]);
-    header('Location: /login.php');
-}
-
 //DEVELOPMENT FUNCTIONS
 function CreateAssetsTable($conn){
     try {
@@ -87,7 +85,7 @@ function PopulateAssets($conn){
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //Arrays for Random Data
-        $TypesArray = array('Laptop','Desktop','Harddrive', 'Projector');
+        $TypesArray = array('Laptop','Desktop','Harddrive');
         $LocationArray = array('Room1','Room2','Room3', 'Room4');
         $MakeArray = array('Toshiba','HP','Samsung','Dell');
         //Faker Data Generator

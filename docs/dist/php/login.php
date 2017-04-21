@@ -4,7 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         exit();
 }
 require '../php/functions.php';
-logout();
 $user = $_POST["username"];
 $pass = $_POST["password"];
 $pass = md5($pass);
@@ -23,7 +22,6 @@ $sth->execute($params);
 
 if ($sth->rowCount() !== 1){
     header("HTTP/1.0 401 unauthorized");
-    unset($_COOKIE["logged_In"]);
     exit();
 }
 else{

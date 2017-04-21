@@ -62,7 +62,8 @@ if(!Login_Check()){
                    </article>
                 </section>
                 <aside class="Helper" id="Sidebar">
-                    <a class="btn btn-success" onclick="enableediting()">Enable Editing</a>
+                    <p><button class="btn btn-success" onclick="enableediting()">Enable Editing</button></p>
+                    <p><button class="btn btn-danger" onclick="DeleteAsset(<?php echo $_GET['id']?>)">Delete Asset</button></p>
                 </aside>
             </div>
         </div>

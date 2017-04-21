@@ -1,14 +1,10 @@
-$(function(){
-    console.log("Javacript Loaded");
+$("document").ready(function(){
 //ON PAGE LOAD POPULATE THE TABLE FROM THE API FetchAll.php
     $(fetchAssets)
     $("#query").on("keyup", fetchAssets);
     $("#searchby").on("change", fetchAssets);
 //END PAGE LOAD
 })
-function ShowMore(){
-    console.log("Show More Activated");
-}
 
 function fetchAssets(){
     $("#AssetsTable tbody").empty();
@@ -41,10 +37,8 @@ function fetchAssets(){
         )
     });
 };
+
 // ADD ASSET FORM JAVASCRIPT AJAX SUBMIT and verification
-
-
-
 $("#addAssetForm").submit(function(e){
     e.preventDefault();
     console.log("Form Submited");
@@ -74,9 +68,9 @@ $("#addAssetForm").submit(function(e){
         $("#errorArea").html(errorMsg);
     });
 });
+
 // FROM https://css-tricks.com/snippets/javascript/get-url-variables/
-function getQueryVariable(variable)
-{
+function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&");
        for (var i=0;i<vars.length;i++) {
@@ -93,7 +87,6 @@ function getDetails(id){
         dataType: 'json',
         data: {searchby:"id", query:id}
     }).done(function(data, textStatus, jqXHR ){
-        console.log(data[0]);
         $('form input, form select').attr('disabled', 'disabled');
         $("[name=Assetno]").val(data[0].assetNo);
         $("#assetID").html(data[0].assetNo);
@@ -145,7 +138,6 @@ $("#view-modify-assets").submit(function(e){
     })
 });
 
-
 $("#loginform").submit(function(e){
     e.preventDefault();
     console.log($(this).serialize());
@@ -173,3 +165,20 @@ $("#loginform").submit(function(e){
         $("#errorArea").show("slow").html(errorMsg);
     })
 });
+
+function DeleteAsset(id){
+    console.log("Deleting Asset with ID of " + id);
+    $.ajax({
+        method: "POST",
+        url: "/php/DeleteAsset.php",
+        data: {"id":id}
+    }).done(function(data, textStatus, jqXHR ){
+       $("#errorArea").addClass("alert-success").html("Deleted Asset").show("slow");
+       $("form").remove();
+       $("aside").remove();
+       $("h1").remove();
+       $("#contain").addClass("full-width row justify-content-center align-items-center")
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        $("#errorArea").addClass("alert-warning").html("Failed To Delete Asset").show("slow");
+    });
+}

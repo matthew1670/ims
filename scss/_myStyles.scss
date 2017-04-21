@@ -1,34 +1,19 @@
 html,body,.container-fluid{
     height: 100%;
 }
+#contain{
+    min-height:calc(100% - 74px);
+    @include media-breakpoint-down(md){
+    min-height:calc(100% - 109px);
+    }
+}
 body#LoginPage{
         background-image: url("/img/1511.jpg");
         background-size: cover;
         background-position: top center;
         background-repeat: no-repeat;
 }
-//Logo On Login Page.
-.logo{
-    text-align: center;
-    img{
-        max-width: 200px;
-        width: 100%;
-        padding: 0.5em 0.5em 0;
-    }
-    p{
-        font-size: 2.7em;
-        line-height: 1.1;
-        display: block;
-    }
-    @include media-breakpoint-only(xs){
-        img{
-            margin-top:2em;
-        }
-        p{
-            font-size: 2em;
-        }
-    }
-}
+
 .navbar-brand{
     text-align: center;
     img {
@@ -128,7 +113,7 @@ article{
     height:100%;
 }
 
-.loginform{
+.login-container{
     @include make-col-ready();
     @include make-col(12);
     @include media-breakpoint-up(sm) {
@@ -143,8 +128,28 @@ article{
     background-color: rgba(255,255,255,0.7);
     padding: 2em 1em;
     border-radius: 0.2em;
+    .logo{
+        text-align: center;
+        img{
+            max-width: 200px;
+            width: 100%;
+            padding: 0.5em 0.5em 0;
+        }
+        p{
+            font-size: 2.7em;
+            line-height: 1.1;
+            display: block;
+        }
+        @include media-breakpoint-only(sm){
+            img{
+                margin-top:2em;
+            }
+            p{
+                font-size: 2em;
+            }
+        }
+    }
 }
-
 #errorArea{
     display:none;
 }

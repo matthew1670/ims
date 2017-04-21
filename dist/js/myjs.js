@@ -1,4 +1,4 @@
-$(function(){
+$("document").ready(function(){
 //ON PAGE LOAD POPULATE THE TABLE FROM THE API FetchAll.php
     $(fetchAssets)
     $("#query").on("keyup", fetchAssets);
@@ -64,8 +64,7 @@ $("#addAssetForm").submit(function(e){
                 errorMsg = "<strong>Server Error Please Try again later </strong><br/> If the problem persists then contact the system administrator";
                 break;
             }
-        $("#errorArea").hide("fast").removeClass(" alert-success").addClass(" alert-warning").show("slow");
-        $("#errorArea").html(errorMsg);
+        $("#errorArea").html(errorMsg).hide("fast").removeClass(" alert-success").addClass(" alert-warning").show("slow");
     });
 });
 
@@ -138,6 +137,59 @@ $("#view-modify-assets").submit(function(e){
     })
 });
 
+function DeleteAsset(id){
+    console.log("Deleting Asset with ID of " + id);
+    $.ajax({
+        method: "POST",
+        url: "/php/DeleteAsset.php",
+        data: {"id":id}
+    }).done(function(data, textStatus, jqXHR ){
+       $("#errorArea").addClass("alert-success").html("Deleted Asset").show("slow");
+       $("form").remove();
+       $("aside").remove();
+       $("h1").remove();
+       $("#contain").addClass("full-width row justify-content-center align-items-center")
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        $("#errorArea").addClass("alert-warning").html("Failed To Delete Asset").show("slow").delay(2000).hide("slow");
+    });
+}
+
+function formSwap(currentForm,FormToShow){
+    $(currentForm).hide();
+    $(FormToShow).show();
+}
+
+$("#Registerform").submit(function(e){
+    e.preventDefault();
+    var password = $("[name='Password']").val();
+    var password2 = $("[name='Password2']").val();
+    if (password != password2){
+        $("#errorArea").addClass("alert-warning").html("Your password doesnt match the confimation").show("slow").delay(2000).hide("slow");
+        return;
+    }
+    $.ajax({
+        method: "POST",
+        url: "/php/register.php",
+        data: $(this).serialize()
+    }).done(function(data, textStatus, jqXHR ){
+       formSwap('#Registerform','#loginform');
+       $("#errorArea").removeClass("alert-warning").addClass("alert-success").html("You Have Registed successfully </br> Login using the form below.").show("slow").delay(2000).hide("slow");
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        switch (jqXHR.status) {
+            case 409:
+                errorMsg = "That Email Address is already Registered.";
+                break;
+            case 503:
+                errorMsg = "Service unavailable please try again later.";
+                break;
+            default:
+            errorMsg = "Failed To Register Please Try Again.";
+
+        }
+        $("#errorArea").removeClass("alert-success").addClass("alert-warning").html(errorMsg).show("slow").delay(2000).hide("slow");
+        });
+})
+
 $("#loginform").submit(function(e){
     e.preventDefault();
     console.log($(this).serialize());
@@ -162,6 +214,6 @@ $("#loginform").submit(function(e){
                 errorMsg = "<strong>Server Error Please Try again later </strong><br/> If the problem persists then contact the system administrator";
                 break;
             }
-        $("#errorArea").show("slow").html(errorMsg);
+        $("#errorArea").html(errorMsg).show("slow").delay(2000).hide("slow");
     })
 });

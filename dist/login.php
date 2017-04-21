@@ -27,11 +27,11 @@ if(Login_Check()){
 
                             <div class="form-group">
                                 <label for="Assetno" class="sr-only">UserName</label>
-                                <input type="text" name="Username" class="form-control" placeholder="Username/Email" required="">
+                                <input type="text" name="username" class="form-control" placeholder="Username/Email" required="">
                             </div>
                             <div class="form-group">
                                 <label for="Assetno" class="sr-only">Password</label>
-                                <input type="password" name="Password" class="form-control" placeholder="Password" required="">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required="">
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="login" class="form-control btn btn-primary">

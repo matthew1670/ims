@@ -1,9 +1,5 @@
 <?php
 require '/php/functions.php';
-if(!Login_Check()){
-    header("Location: /login.php");
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,10 +15,7 @@ if(!Login_Check()){
                    <article>
                       <h1 >Viewing Asset - <span id="assetID"></span></h1>
                       <div id="errorArea" class="alert" style="display:none;"></div>
-                      <form method="post" id="view-modify-assets">
-                          <div class="form-group">
-                              <input type="text" name="ID" class="form-control" hidden/>
-                          </div>
+                      <form method="post" id="addAssetForm">
                           <div class="form-group">
                               <label for="Assetno">Asset Number</label>
                               <input type="text" name="Assetno" class="form-control" placeholder="Asset Number" required  pattern="^[0-9]*$"/>
@@ -32,7 +25,7 @@ if(!Login_Check()){
                               <select class="form-control" name="assettype">
                                   <option value="Desktop">Desktop</option>
                                   <option value="Laptop">Laptop</option>
-                                  <option value="Harddrive">Hard Drive</option>
+                                  <option value="HDD">Hard Drive</option>
                               </select>
                           </div>
                           <div class="form-group">
@@ -62,7 +55,7 @@ if(!Login_Check()){
                    </article>
                 </section>
                 <aside class="Helper" id="Sidebar">
-                    <a class="btn btn-success" onclick="enableediting()">Enable Editing</a>
+                    <p>Enable Editing</p>
                 </aside>
             </div>
         </div>

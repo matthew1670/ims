@@ -9591,7 +9591,11 @@ article {
   }
 }
 
-#addAssetForm .form-group {
+#view-modify-assets input[type="Submit"] {
+  display: none;
+}
+
+#addAssetForm .form-group, #view-modify-assets .form-group {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9604,34 +9608,34 @@ article {
 }
 
 @media (min-width: 576px) {
-  #addAssetForm .form-group {
+  #addAssetForm .form-group, #view-modify-assets .form-group {
     margin-right: -10px;
     margin-left: -10px;
   }
 }
 
 @media (min-width: 768px) {
-  #addAssetForm .form-group {
+  #addAssetForm .form-group, #view-modify-assets .form-group {
     margin-right: -10px;
     margin-left: -10px;
   }
 }
 
 @media (min-width: 992px) {
-  #addAssetForm .form-group {
+  #addAssetForm .form-group, #view-modify-assets .form-group {
     margin-right: -10px;
     margin-left: -10px;
   }
 }
 
 @media (min-width: 1200px) {
-  #addAssetForm .form-group {
+  #addAssetForm .form-group, #view-modify-assets .form-group {
     margin-right: -10px;
     margin-left: -10px;
   }
 }
 
-#addAssetForm label {
+#addAssetForm label, #view-modify-assets label {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -9646,35 +9650,35 @@ article {
 }
 
 @media (min-width: 576px) {
-  #addAssetForm label {
+  #addAssetForm label, #view-modify-assets label {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 768px) {
-  #addAssetForm label {
+  #addAssetForm label, #view-modify-assets label {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 992px) {
-  #addAssetForm label {
+  #addAssetForm label, #view-modify-assets label {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 1200px) {
-  #addAssetForm label {
+  #addAssetForm label, #view-modify-assets label {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 576px) {
-  #addAssetForm label {
+  #addAssetForm label, #view-modify-assets label {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
@@ -9684,7 +9688,7 @@ article {
 }
 
 @media (min-width: 768px) {
-  #addAssetForm label {
+  #addAssetForm label, #view-modify-assets label {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
@@ -9693,7 +9697,7 @@ article {
   }
 }
 
-#addAssetForm input, #addAssetForm select {
+#addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -9707,35 +9711,35 @@ article {
 }
 
 @media (min-width: 576px) {
-  #addAssetForm input, #addAssetForm select {
+  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 768px) {
-  #addAssetForm input, #addAssetForm select {
+  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 992px) {
-  #addAssetForm input, #addAssetForm select {
+  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 1200px) {
-  #addAssetForm input, #addAssetForm select {
+  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 576px) {
-  #addAssetForm input, #addAssetForm select {
+  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
@@ -9745,7 +9749,7 @@ article {
 }
 
 @media (min-width: 768px) {
-  #addAssetForm input, #addAssetForm select {
+  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 75%;
         -ms-flex: 0 0 75%;
@@ -9754,7 +9758,7 @@ article {
   }
 }
 
-#addAssetForm input[type="Submit"] {
+#addAssetForm input[type="Submit"], #view-modify-assets input[type="Submit"] {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;

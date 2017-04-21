@@ -39,7 +39,9 @@ switch ($searchby) {
     case 'type':
         $sql = "SELECT * FROM assets Where type like '" . $query . "%'";
         break;
-
+    case 'id':
+        $sql = "SELECT * FROM assets Where ID = '" . $query . "'";
+        break;
     default:
         $sql = "SELECT * FROM assets" ;
         break;
@@ -48,7 +50,7 @@ switch ($searchby) {
 try {
     $sth = $conn->prepare($sql);
     $sth->execute();
-    while ($result = $sth->fetchObject()) {
+    while ($result = $sth->fetchObject()){
         $AllResults[] = $result;
     }
     if (empty($AllResults)){

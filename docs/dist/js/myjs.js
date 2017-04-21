@@ -30,7 +30,7 @@ function fetchAssets(){
             + "<td>" + value.added + "</td>"
             + "<td>" + value.Location + "</td>"
             + "<td>" + value.associatedTo + "</td>"
-            + "<td> <button class='btn btn-primary' onclick='ShowMore();' id='btn_" +value.id + "'> More Info</button></td>"
+            + "<td> <a class='btn btn-primary' href='/viewAsset.php?id=" + value.id + "'> More Info</a></td>"
             + "</tr>"
             );
         })
@@ -74,3 +74,39 @@ $("#addAssetForm").submit(function(e){
         $("#errorArea").html(errorMsg);
     });
 });
+// FROM https://css-tricks.com/snippets/javascript/get-url-variables/
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
+function getDetails(id){
+    $.ajax({
+        method: "GET",
+        url: "/php/FetchAll.php",
+        dataType: 'json',
+        data: {searchby:"id", query:id}
+    }).done(function(data, textStatus, jqXHR ){
+        $('form input, form select').attr('disabled', 'disabled');
+        $("[name=Assetno]").val(data[0].assetNo);
+        $("#assetID").html(data[0].assetNo);
+        $("[name=Make]").val(data[0].make);
+        $("[name=Model]").val(data[0].model);
+        $("[name=Location]").val(data[0].Location);
+        $("[name=PatTest]").val(data[0].patTestDate.split(' ')[0]);
+        $("[name=User]").val(data[0].associatedTo);
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        console.log(jqXHR.status);
+    })
+}
+
+function enableediting(){
+    $('form input, form select').removeAttr('disabled', 'enbled');
+    $('form input[type="submit"]').show();
+}

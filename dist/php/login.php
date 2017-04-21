@@ -4,7 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         exit();
 }
 require '../php/functions.php';
-logout();
 $user = $_POST["username"];
 $pass = $_POST["password"];
 $pass = md5($pass);

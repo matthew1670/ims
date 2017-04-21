@@ -1,6 +1,9 @@
 <?php
-require_once '../vendor/autoload.php';
 include 'php/functions.php';
+if(!Login_Check()){
+    header("Location: /login.php");
+    exit();
+}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +33,7 @@ include 'php/functions.php';
                                 <select class="form-control" name="assettype">
                                     <option value="Desktop">Desktop</option>
                                     <option value="Laptop">Laptop</option>
-                                    <option value="HDD">Hard Drive</option>
+                                    <option value="Harddrive">Hard Drive</option>
                                 </select>
                             </div>
                             <div class="form-group">

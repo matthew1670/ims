@@ -94,13 +94,53 @@ function getDetails(id){
         data: {searchby:"id", query:id}
     }).done(function(data, textStatus, jqXHR ){
         console.log(data[0]);
+        $('form input, form select').attr('disabled', 'disabled');
         $("[name=Assetno]").val(data[0].assetNo);
+        $("#assetID").html(data[0].assetNo);
+        $("[name='assettype']").val(data[0].type).prop('selected', true);
         $("[name=Make]").val(data[0].make);
         $("[name=Model]").val(data[0].model);
         $("[name=Location]").val(data[0].Location);
         $("[name=PatTest]").val(data[0].patTestDate.split(' ')[0]);
         $("[name=User]").val(data[0].associatedTo);
+        $("[name=ID]").val(data[0].id);
     }).fail(function(jqXHR, textStatus, errorThrown){
         console.log(jqXHR.status);
     })
 }
+
+function enableediting(){
+    $('form input, form select').removeAttr('disabled');
+    $('form input[type="submit"]').show();
+}
+
+$("#view-modify-assets").submit(function(e){
+    e.preventDefault();
+    console.log("Form Submited");
+    console.log($('#view-modify-assets').serialize());
+    $.ajax({
+        method: "POST",
+        url: "/php/modify.php",
+        data: $('#view-modify-assets').serialize()
+    }).done(function(data, textStatus, jqXHR ){
+        console.log(textStatus);
+        $('form input, form select').attr('disabled', 'disabled');
+        $('form input[type="submit"]').hide();
+        $("#errorArea").hide("fast").removeClass("alert-warning").addClass("alert-success").show("slow").html("Asset Has Been updated in the System").delay(5000).hide("slow");
+
+
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        switch (jqXHR.status) {
+            case 400:
+                errorMsg = "<strong>Bad Request Please Try Again.</strong><br/> If the problem persists then contact the system administrator";
+                break;
+            case 503:
+                errorMsg = "<strong>There is an issue with the system.</strong><br/> If the problem persists then contact the system administrator";
+                break;
+            default:
+                errorMsg = "<strong>Server Error Please Try again later </strong><br/> If the problem persists then contact the system administrator";
+                break;
+            }
+        $("#errorArea").hide("fast").removeClass(" alert-success").addClass(" alert-warning").show("slow").html(errorMsg);
+    })
+});

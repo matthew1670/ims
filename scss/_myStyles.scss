@@ -89,7 +89,12 @@ article{
 }
 
 //Form Styling
-#addAssetForm{
+#view-modify-assets{
+    input[type="Submit"]{
+        display: none;
+    }
+}
+#addAssetForm, #view-modify-assets{
     .form-group{
         @include make-row();
     }

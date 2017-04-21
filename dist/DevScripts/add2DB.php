@@ -4,7 +4,7 @@
     $db = connect();
     //Populate the Database with Dubby Data for 50 Entries
     try {
-        for ($i=0; $i < 50; $i++) {
+        for ($i=0; $i < 100; $i++) {
             PopulateAssets($db);
         }
     } catch (Exception $e) {

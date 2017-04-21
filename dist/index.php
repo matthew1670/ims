@@ -1,6 +1,9 @@
 <?php
-require_once '../vendor/autoload.php';
 include 'php/functions.php';
+if(!Login_Check()){
+    header("Location: /login.php");
+    exit();
+}
  ?>
 <!DOCTYPE html>
 <html lang="en">

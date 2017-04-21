@@ -87,7 +87,7 @@ function PopulateAssets($conn){
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //Arrays for Random Data
-        $TypesArray = array('Laptop','Desktop','Harddrive', 'Projector');
+        $TypesArray = array('Laptop','Desktop','Harddrive');
         $LocationArray = array('Room1','Room2','Room3', 'Room4');
         $MakeArray = array('Toshiba','HP','Samsung','Dell');
         //Faker Data Generator

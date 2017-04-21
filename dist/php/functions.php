@@ -19,6 +19,9 @@ function navigation(){
           <li class="nav-item">
             <a class="nav-link" href="/AddAsset.php">Add An Asset</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/php/logout.php">Log Out</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -51,11 +54,6 @@ function Login_Check(){
     else{
         return true;
     }
-}
-
-function logout(){
-    unset($_COOKIE["logged_In"]);
-    header('Location: /login.php');
 }
 
 //DEVELOPMENT FUNCTIONS

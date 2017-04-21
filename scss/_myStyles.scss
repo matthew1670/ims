@@ -127,6 +127,7 @@ article{
 .loginbox{
     height:100%;
 }
+
 .loginform{
     @include make-col-ready();
     @include make-col(12);
@@ -142,4 +143,8 @@ article{
     background-color: rgba(255,255,255,0.7);
     padding: 2em 1em;
     border-radius: 0.2em;
+}
+
+#errorArea{
+    display:none;
 }

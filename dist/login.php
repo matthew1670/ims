@@ -19,12 +19,12 @@ if(Login_Check()){
             <body id="LoginPage">
                 <div class="container-fluid">
                     <div class="loginbox row justify-content-center align-items-center">
-                        <form class="loginform" action="/php/login.php" method="post">
+                        <form id="loginform" class="loginform" action="/php/login.php" method="post">
                             <div class="logo">
                               <img src="/img/logo-Initials.png" class="img-fluid logo">
                               <p>Asset Managment System</p>
                             </div>
-
+                            <div id="errorArea" class="alert alert-danger"></div>
                             <div class="form-group">
                                 <label for="Assetno" class="sr-only">UserName</label>
                                 <input type="text" name="username" class="form-control" placeholder="Username/Email" required="">

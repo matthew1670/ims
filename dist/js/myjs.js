@@ -144,3 +144,32 @@ $("#view-modify-assets").submit(function(e){
         $("#errorArea").hide("fast").removeClass(" alert-success").addClass(" alert-warning").show("slow").html(errorMsg);
     })
 });
+
+
+$("#loginform").submit(function(e){
+    e.preventDefault();
+    console.log($(this).serialize());
+    $.ajax({
+        method: "POST",
+        url: "/php/login.php",
+        data: $(this).serialize()
+    }).done(function(data, textStatus, jqXHR ){
+       window.location.href = "/";
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        switch (jqXHR.status) {
+            case 400:
+                errorMsg = "<strong>Bad Request Please Try Again.</strong><br/> If the problem persists then contact the system administrator";
+                break;
+            case 503:
+                errorMsg = "<strong>There is an issue with the system.</strong><br/> If the problem persists then contact the system administrator";
+                break;
+            case 401:
+                errorMsg = "<strong>Bad Login Details.</strong><br/> Please Try Again.";
+                break;
+            default:
+                errorMsg = "<strong>Server Error Please Try again later </strong><br/> If the problem persists then contact the system administrator";
+                break;
+            }
+        $("#errorArea").show("slow").html(errorMsg);
+    })
+});

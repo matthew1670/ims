@@ -22,7 +22,6 @@ $sth->execute($params);
 
 if ($sth->rowCount() !== 1){
     header("HTTP/1.0 401 unauthorized");
-    unset($_COOKIE["logged_In"]);
     exit();
 }
 else{

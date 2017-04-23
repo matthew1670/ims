@@ -1,5 +1,5 @@
 <?php
-include 'php/functions.php';
+require $_SERVER['DOCUMENT_ROOT'].'/php/functions.php';
 if(!Login_Check()){
     header("Location: /login.php");
     exit();
@@ -21,7 +21,7 @@ if(!Login_Check()){
           <div id="contain" class="row">
                   <section id="MainContentArea">
                      <article>
-                        <h1 >Add An Asset</h1>
+                        <h1 class="pageTitle">Add An Asset</h1>
                         <div id="errorArea" class="alert" style="display:none;"></div>
                         <form method="post" id="addAssetForm">
                             <div class="form-group">

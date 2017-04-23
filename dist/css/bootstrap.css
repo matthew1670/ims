@@ -9342,14 +9342,6 @@ html, body, .container-fluid {
   }
 }
 
-body#LoginPage {
-  background-image: url("/img/1511.jpg");
-  -webkit-background-size: cover;
-          background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-}
-
 .navbar-brand {
   text-align: center;
 }
@@ -9399,65 +9391,6 @@ body#LoginPage {
     padding-right: 10px;
     padding-left: 10px;
   }
-}
-
-#MainContentArea {
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-  padding-right: 10px;
-  padding-left: 10px;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 100%;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
-  max-width: 100%;
-}
-
-@media (min-width: 576px) {
-  #MainContentArea {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  #MainContentArea {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-}
-
-@media (min-width: 992px) {
-  #MainContentArea {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-}
-
-@media (min-width: 1200px) {
-  #MainContentArea {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  #MainContentArea {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 75%;
-        -ms-flex: 0 0 75%;
-            flex: 0 0 75%;
-    max-width: 75%;
-  }
-}
-
-#MainContentArea.full-width {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 100%;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
-  max-width: 100%;
 }
 
 #Sidebar {
@@ -9535,7 +9468,7 @@ body#LoginPage {
   margin-right: 1em;
 }
 
-article {
+#MainContentArea {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -9549,38 +9482,52 @@ article {
 }
 
 @media (min-width: 576px) {
-  article {
+  #MainContentArea {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 768px) {
-  article {
+  #MainContentArea {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 992px) {
-  article {
+  #MainContentArea {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 1200px) {
-  article {
+  #MainContentArea {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
-#view-modify-assets input[type="Submit"] {
-  display: none;
+@media (min-width: 768px) {
+  #MainContentArea {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    max-width: 75%;
+  }
 }
 
-#addAssetForm .form-group, #view-modify-assets .form-group {
+#MainContentArea.full-width {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+}
+
+article {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9593,34 +9540,133 @@ article {
 }
 
 @media (min-width: 576px) {
-  #addAssetForm .form-group, #view-modify-assets .form-group {
+  article {
     margin-right: -10px;
     margin-left: -10px;
   }
 }
 
 @media (min-width: 768px) {
-  #addAssetForm .form-group, #view-modify-assets .form-group {
+  article {
     margin-right: -10px;
     margin-left: -10px;
   }
 }
 
 @media (min-width: 992px) {
-  #addAssetForm .form-group, #view-modify-assets .form-group {
+  article {
     margin-right: -10px;
     margin-left: -10px;
   }
 }
 
 @media (min-width: 1200px) {
-  #addAssetForm .form-group, #view-modify-assets .form-group {
+  article {
     margin-right: -10px;
     margin-left: -10px;
   }
 }
 
-#addAssetForm label, #view-modify-assets label {
+.pageTitle {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .pageTitle {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .pageTitle {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .pageTitle {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pageTitle {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+#assetImg {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 576px) {
+  #assetImg {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #assetImg {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  #assetImg {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #assetImg {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #assetImg {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.333333%;
+        -ms-flex: 0 0 33.333333%;
+            flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+#assetImg img {
+  max-width: 100%;
+  height: auto;
+}
+
+#view-modify-assets label, #addAssetForm label {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -9635,35 +9681,35 @@ article {
 }
 
 @media (min-width: 576px) {
-  #addAssetForm label, #view-modify-assets label {
+  #view-modify-assets label, #addAssetForm label {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 768px) {
-  #addAssetForm label, #view-modify-assets label {
+  #view-modify-assets label, #addAssetForm label {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 992px) {
-  #addAssetForm label, #view-modify-assets label {
+  #view-modify-assets label, #addAssetForm label {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 1200px) {
-  #addAssetForm label, #view-modify-assets label {
+  #view-modify-assets label, #addAssetForm label {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 576px) {
-  #addAssetForm label, #view-modify-assets label {
+  #view-modify-assets label, #addAssetForm label {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
@@ -9673,7 +9719,7 @@ article {
 }
 
 @media (min-width: 768px) {
-  #addAssetForm label, #view-modify-assets label {
+  #view-modify-assets label, #addAssetForm label {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
@@ -9682,7 +9728,7 @@ article {
   }
 }
 
-#addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
+#view-modify-assets input, #view-modify-assets select, #addAssetForm input, #addAssetForm select {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -9696,35 +9742,35 @@ article {
 }
 
 @media (min-width: 576px) {
-  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
+  #view-modify-assets input, #view-modify-assets select, #addAssetForm input, #addAssetForm select {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 768px) {
-  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
+  #view-modify-assets input, #view-modify-assets select, #addAssetForm input, #addAssetForm select {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 992px) {
-  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
+  #view-modify-assets input, #view-modify-assets select, #addAssetForm input, #addAssetForm select {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 1200px) {
-  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
+  #view-modify-assets input, #view-modify-assets select, #addAssetForm input, #addAssetForm select {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 576px) {
-  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
+  #view-modify-assets input, #view-modify-assets select, #addAssetForm input, #addAssetForm select {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
@@ -9734,7 +9780,7 @@ article {
 }
 
 @media (min-width: 768px) {
-  #addAssetForm input, #addAssetForm select, #view-modify-assets input, #view-modify-assets select {
+  #view-modify-assets input, #view-modify-assets select, #addAssetForm input, #addAssetForm select {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 75%;
         -ms-flex: 0 0 75%;
@@ -9743,12 +9789,158 @@ article {
   }
 }
 
-#addAssetForm input[type="Submit"], #view-modify-assets input[type="Submit"] {
+#view-modify-assets .form-group, #addAssetForm .form-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+@media (min-width: 576px) {
+  #view-modify-assets .form-group, #addAssetForm .form-group {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #view-modify-assets .form-group, #addAssetForm .form-group {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+}
+
+@media (min-width: 992px) {
+  #view-modify-assets .form-group, #addAssetForm .form-group {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #view-modify-assets .form-group, #addAssetForm .form-group {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+}
+
+#view-modify-assets input[type="Submit"], #addAssetForm input[type="Submit"] {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
   max-width: 100%;
+}
+
+#view-modify-assets {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 576px) {
+  #view-modify-assets {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #view-modify-assets {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  #view-modify-assets {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #view-modify-assets {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #view-modify-assets {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.666667%;
+        -ms-flex: 0 0 66.666667%;
+            flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+#view-modify-assets input[type="Submit"] {
+  display: none;
+}
+
+#addAssetForm {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 576px) {
+  #addAssetForm {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #addAssetForm {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  #addAssetForm {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #addAssetForm {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+body#LoginPage {
+  background-image: url("/img/1511.jpg");
+  -webkit-background-size: cover;
+          background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 .loginbox {
@@ -9856,5 +10048,9 @@ article {
 
 #errorArea {
   display: none;
+}
+
+.alert {
+  width: 100%;
 }
 /*# sourceMappingURL=bootstrap.css.map */

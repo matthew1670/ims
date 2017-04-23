@@ -1,5 +1,5 @@
 <?php
-require '/php/functions.php';
+require $_SERVER['DOCUMENT_ROOT'].'/php/functions.php';
 if(!Login_Check()){
     header("Location: /login.php");
     exit();
@@ -7,8 +7,9 @@ if(!Login_Check()){
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>    <!-- Required meta tags -->
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>View Assets Details</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
       </head>
@@ -17,8 +18,11 @@ if(!Login_Check()){
         <div id="contain" class="row">
                 <section id="MainContentArea">
                    <article>
-                      <h1 >Viewing Asset - <span id="assetID"></span></h1>
-                      <div id="errorArea" class="alert" style="display:none;"></div>
+                       <div id="errorArea" class="alert" style="display:none;"></div>
+                      <h1 class="pageTitle">Viewing Asset - <span id="assetID"></span></h1>
+                      <div id="assetImg">
+                          <img src="/img/Assets-images/default.jpg" alt="Image Of the Asset">
+                      </div>
                       <form method="post" id="view-modify-assets">
                           <div class="form-group">
                               <input type="text" name="ID" class="form-control" hidden/>

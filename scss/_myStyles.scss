@@ -1,17 +1,12 @@
 html,body,.container-fluid{
     height: 100%;
 }
+
 #contain{
     min-height:calc(100% - 74px);
     @include media-breakpoint-down(md){
     min-height:calc(100% - 109px);
     }
-}
-body#LoginPage{
-        background-image: url("/img/1511.jpg");
-        background-size: cover;
-        background-position: top center;
-        background-repeat: no-repeat;
 }
 
 .navbar-brand{
@@ -29,19 +24,6 @@ body#LoginPage{
 #contain{
     max-width: 100em;
     @include make-container();
-}
-
-#MainContentArea{
-    @include make-col-ready();
-    @include make-col(12);
-    @include media-breakpoint-up(md) {
-        @include make-col(9);
-    }
-    &.full-width{
-        @include media-breakpoint-up(xs) {
-            @include make-col(12);
-        }
-    }
 }
 
 #Sidebar{
@@ -68,21 +50,43 @@ body#LoginPage{
     }
 }
 
-article{
+#MainContentArea{
     @include make-col-ready();
     @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(9);
+    }
+    &.full-width{
+        @include media-breakpoint-up(xs) {
+            @include make-col(12);
+        }
+    }
 }
 
-//Form Styling
-#view-modify-assets{
-    input[type="Submit"]{
-        display: none;
+article{
+    @include make-row();
+}
+
+.pageTitle{
+    @include make-col-ready();
+    @include make-col(12);
+    text-align: center;
+}
+
+#assetImg{
+    text-align: center;
+    @include make-col-ready();
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(4);
+    }
+    img{
+        @include img-fluid;
     }
 }
-#addAssetForm, #view-modify-assets{
-    .form-group{
-        @include make-row();
-    }
+
+//General Form Settings
+#view-modify-assets, #addAssetForm{
     label{
         @include make-col-ready();
         @include make-col(12);
@@ -104,9 +108,40 @@ article{
             @include make-col(9);
         }
     }
+    .form-group{
+        @include make-row();
+        margin-left:0 !important;
+        margin-right:0 !important;
+    }
     input[type="Submit"]{
         @include make-col(12);
     }
+}
+
+//Form Styling for viewing asset
+#view-modify-assets{
+    @include make-col-ready();
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(8);
+    }
+    input[type="Submit"]{
+        display: none;
+    }
+}
+
+//Form Styling for Adding asset
+#addAssetForm{
+    @include make-col-ready();
+    @include make-col(12);
+}
+
+//Login Area Styling
+body#LoginPage{
+        background-image: url("/img/1511.jpg");
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
 }
 
 .loginbox{
@@ -150,6 +185,12 @@ article{
         }
     }
 }
+
+//Alerts Styling
 #errorArea{
     display:none;
+}
+
+.alert{
+    width:100%;
 }

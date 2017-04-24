@@ -8,11 +8,13 @@ checking the following:
 > if success sql insert or failed
 Finally retuning the correct HTTP Status code.
 */
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         header("HTTP/1.0 400 Bad Request");
         exit();
 }
 require '../php/functions.php';
+
 $AssetNo = $_POST["Assetno"];
 $AssetType = $_POST["assettype"];
 $AssetMake = $_POST["Make"];
@@ -22,59 +24,10 @@ $AssetLocation = $_POST["Location"];
 $AssetPatTest = $_POST["PatTest"];
 $AssetUser = $_POST["User"];
 
-if ($_FILES["img"]){
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/img/Assets-images/";
-    $target_file = $target_dir . basename($_FILES["img"]["name"]);
-    $uploadOk = true;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-        $check = getimagesize($_FILES["img"]["tmp_name"]);
-        if($check !== false) {
-            $uploadOk = true;
-        } else {
-            $uploadOk = false;
-        }
-        // if ($_FILES["img"]["size"] > 500000) {
-        //     $uploadOk = false;
-        // }
-    // Check if $uploadOk is set to false by an error
-    if ($uploadOk == false) {
-        header("HTTP/1.0 400 Bad Request");
-        exit();
-    // if everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["img"]["name"]). " has been uploaded.";
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-            header("HTTP/1.0 500 Internal Server Error");
-            exit();
-        }
-    }
-}
-
-
-$Values = array('Number' => $AssetNo,
-                'Type' => $AssetType,
-                'Make' => $AssetMake,
-                'Model' => $AssetModel,
-                'Location' => $AssetLocation,
-                'Pat Test Date' => $AssetPatTest,
-                'Associated User' => $AssetUser);
 //CREATE CONNECTION TO DB return service unavaliable if faile to connect.
 if (! $conn = connect()){
     header("HTTP/1.0 503 service unavailable");
     exit();
-}
-
-//ERRORS BOOLEN DEFAULT TO FALSE
-$error = false;
-//CHECK IF ANY POSTED VARIABLES ARE BLANK FROM THE VALUES ARRAY
-foreach ($Values as $variable => $value) {
-    if (!isset($variable) or empty($value)){
-        echo "$variable";
-        $missing[] = "$variable";
-        $error = true;
-    }
 }
 
 //CHECK IF ASSET NUMBER ALREADY IN USE IN THE DB
@@ -88,6 +41,68 @@ if ($sth->rowCount() >= 1){
     exit();
 }
 
+if ($_FILES["img"]){
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/img/Assets-images/";
+    $target_file = $target_dir . basename($_FILES["img"]["name"]);
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $target_file = $target_dir . $AssetNo . "." . $imageFileType;
+    $db_location = str_replace($_SERVER['DOCUMENT_ROOT'], '', $target_file) ;
+    $uploadOk = true;
+
+// ALL ERROR CHECKING OF UPLOADED IMAGE
+    // Check if image file is a actual image or fake image
+    $check = getimagesize($_FILES["img"]["tmp_name"]);
+    if($check !== false) {
+        $uploadOk = true;
+    } else {
+        $uploadOk = false;
+    }
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        $uploadOk = false;
+    }
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+        echo "Sorry, only JPG, JPEG & PNG files are allowed.";
+        $uploadOk = false;
+    }
+    // Check if $uploadOk is set to false by an error
+    if ($uploadOk == false) {
+        header("HTTP/1.0 400 Bad Request");
+        exit();
+// if everything is ok, try to upload file
+    } else {
+        if (!is_writable($target_dir)) {
+            echo 'Upload directory is not writable, or does not exist.';
+            header("HTTP/1.0 501")
+            exit();
+        }
+
+        if (! move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+            header("HTTP/1.0 507");
+            exit();
+        }
+    }
+}
+//END FILE UPLOAD
+$Values = array('Number' => $AssetNo,
+                'Type' => $AssetType,
+                'Make' => $AssetMake,
+                'Model' => $AssetModel,
+                'Location' => $AssetLocation,
+                'Pat Test Date' => $AssetPatTest,
+                'Associated User' => $AssetUser);
+
+//ERRORS BOOLEN DEFAULT TO FALSE
+$error = false;
+//CHECK IF ANY POSTED VARIABLES ARE BLANK FROM THE VALUES ARRAY
+foreach ($Values as $variable => $value) {
+    if (!isset($variable) or empty($value)){
+        echo "$variable";
+        $missing[] = "$variable";
+        $error = true;
+    }
+}
 
 //IF ANY ERRORS IN PRE SQL CHECKS
 //RETURN 400 BAD REQUEST
@@ -111,7 +126,7 @@ else{
                 ":pat" => $AssetPatTest
             );
 if ($_FILES["img"]){
-    $Params[":img"] = $target_file;
+    $Params[":img"] = $db_location;
     $sql="INSERT INTO `assets` (assetNo, type, make, model, associatedTo, Location, patTestDate, imgLocation)
     VALUES (:assetnumber, :type, :make, :model, :user, :location, :pat, :img)";
 }else{

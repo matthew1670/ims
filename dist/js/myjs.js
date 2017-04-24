@@ -41,15 +41,18 @@ function fetchAssets(){
 // ADD ASSET FORM JAVASCRIPT AJAX SUBMIT and verification
 $("#addAssetForm").submit(function(e){
     e.preventDefault();
-    var imgData;
-    var data = $("this").serializeArray();
-    data.push({img: imgData});
+    var form = document.getElementById("addAssetForm");
+    var formdata = new FormData(form);
     $.ajax({
         method: "POST",
         url: "/php/addtodb.php",
-        data: $('#addAssetForm').serializeArray()
+        data: formdata,
+        cache: false,
+        contentType: false,
+        processData: false
     })
     .done(function(data){
+        console.log(data);
         $("#errorArea").hide("fast").removeClass("alert-warning").addClass("alert-success").show("slow").html("Asset Has Been added to the System");
         $("#addAssetForm").trigger("reset");
     })
@@ -150,6 +153,7 @@ function DeleteAsset(id){
        $("form").remove();
        $("aside").remove();
        $("h1").remove();
+       $("#assetImg").remove();
        $("#contain").addClass("full-width row justify-content-center align-items-center")
     }).fail(function(jqXHR, textStatus, errorThrown){
         $("#errorArea").addClass("alert-warning").html("Failed To Delete Asset").show("slow").delay(2000).hide("slow");

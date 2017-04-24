@@ -19,7 +19,7 @@ if(!Login_Check()){
       <div class="container-fluid">
          <?php navigation(); ?>
               <section id="MainContentArea" class="full-width">
-                  <article id="Alerts">
+                  <!-- <article id="Alerts">
                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
@@ -27,7 +27,7 @@ if(!Login_Check()){
                          <h1 class="alert-heading">Attention</h1>
                          <p>You have Items that need looking at.</p>
                     </div>
-                  </article>
+                  </article> -->
                   <article id="Assets">
                       <header>
                           <h1>Vew Assets</h1>

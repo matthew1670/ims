@@ -23,7 +23,7 @@ if(!Login_Check()){
                      <article>
                         <h1 class="pageTitle">Add An Asset</h1>
                         <div id="errorArea" class="alert" style="display:none;"></div>
-                        <form method="post" id="addAssetForm">
+                        <form method="POST" id="addAssetForm" action="/php/addtodb.php" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="Assetno">Asset Number</label>
                                 <input type="text" name="Assetno" class="form-control" placeholder="Asset Number" required  pattern="^[0-9]*$"/>
@@ -58,8 +58,8 @@ if(!Login_Check()){
                             </div>
                             <div class="form-group">
                                 <label for="img">Image</label>
-                                <input type="file" name="img" class="form-control" required="">
-                                <img id="ImgPreview">
+                                <input type="file" name="img" class="form-control">
+                                <img id="ImgPreview" />
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="form-control btn-primary" value="Submit" />

@@ -22,6 +22,37 @@ $AssetLocation = $_POST["Location"];
 $AssetPatTest = $_POST["PatTest"];
 $AssetUser = $_POST["User"];
 
+if ($_FILES["img"]){
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/img/Assets-images/";
+    $target_file = $target_dir . basename($_FILES["img"]["name"]);
+    $uploadOk = true;
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        $check = getimagesize($_FILES["img"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = true;
+        } else {
+            $uploadOk = false;
+        }
+        // if ($_FILES["img"]["size"] > 500000) {
+        //     $uploadOk = false;
+        // }
+    // Check if $uploadOk is set to false by an error
+    if ($uploadOk == false) {
+        header("HTTP/1.0 400 Bad Request");
+        exit();
+    // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["img"]["name"]). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+            header("HTTP/1.0 500 Internal Server Error");
+            exit();
+        }
+    }
+}
+
+
 $Values = array('Number' => $AssetNo,
                 'Type' => $AssetType,
                 'Make' => $AssetMake,
@@ -79,9 +110,15 @@ else{
                 ":location" =>$AssetLocation,
                 ":pat" => $AssetPatTest
             );
-//PREPERED SQL STATEMENT
+if ($_FILES["img"]){
+    $Params[":img"] = $target_file;
+    $sql="INSERT INTO `assets` (assetNo, type, make, model, associatedTo, Location, patTestDate, imgLocation)
+    VALUES (:assetnumber, :type, :make, :model, :user, :location, :pat, :img)";
+}else{
+
     $sql="INSERT INTO `assets` (assetNo, type, make, model, associatedTo, Location, patTestDate)
     VALUES (:assetnumber, :type, :make, :model, :user, :location, :pat)";
+}
 //PREPERING THE SQL STATEMENT
     $sth = $conn->prepare($sql);
 //EXECTING THE SQL STATMENT AND RETURNING AN APPROPRIATE HTTP STATUS CODE.

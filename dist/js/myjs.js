@@ -41,11 +41,13 @@ function fetchAssets(){
 // ADD ASSET FORM JAVASCRIPT AJAX SUBMIT and verification
 $("#addAssetForm").submit(function(e){
     e.preventDefault();
-    console.log("Form Submited");
+    var imgData;
+    var data = $("this").serializeArray();
+    data.push({img: imgData});
     $.ajax({
         method: "POST",
         url: "/php/addtodb.php",
-        data: $('#addAssetForm').serialize()
+        data: $('#addAssetForm').serializeArray()
     })
     .done(function(data){
         $("#errorArea").hide("fast").removeClass("alert-warning").addClass("alert-success").show("slow").html("Asset Has Been added to the System");
@@ -86,7 +88,7 @@ function getDetails(id){
         dataType: 'json',
         data: {searchby:"id", query:id}
     }).done(function(data, textStatus, jqXHR ){
-        $('form input, form select').attr('disabled', 'disabled');
+        $("#assetImg>img").attr("src" , data[0].imgLocation);
         $("[name=Assetno]").val(data[0].assetNo);
         $("#assetID").html(data[0].assetNo);
         $("[name='assettype']").val(data[0].type).prop('selected', true);

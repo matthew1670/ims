@@ -57,6 +57,11 @@ if(!Login_Check()){
                                 <input type="text" name="User" class="form-control" required />
                             </div>
                             <div class="form-group">
+                                <label for="img">Image</label>
+                                <input type="file" name="img" class="form-control" required="">
+                                <img id="ImgPreview">
+                            </div>
+                            <div class="form-group">
                                 <input type="submit" class="form-control btn-primary" value="Submit" />
                             </div>
                         </form>

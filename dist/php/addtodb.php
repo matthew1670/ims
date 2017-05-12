@@ -41,7 +41,7 @@ if ($sth->rowCount() >= 1){
     exit();
 }
 
-if ($_FILES["img"]){
+if ($_FILES['img']['size']){
     $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/img/Assets-images/";
     $target_file = $target_dir . basename($_FILES["img"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -69,12 +69,14 @@ if ($_FILES["img"]){
     // Check if $uploadOk is set to false by an error
     if ($uploadOk == false) {
         header("HTTP/1.0 400 Bad Request");
+		echo json_encode("Image Issue");
         exit();
 // if everything is ok, try to upload file
     } else {
         if (!is_writable($target_dir)) {
             echo 'Upload directory is not writable, or does not exist.';
-            header("HTTP/1.0 501")
+            header("HTTP/1.0 501");
+			echo json_encode($target_dir);
             exit();
         }
 
@@ -125,12 +127,12 @@ else{
                 ":location" =>$AssetLocation,
                 ":pat" => $AssetPatTest
             );
-if ($_FILES["img"]){
+if ($uploadOk){
     $Params[":img"] = $db_location;
     $sql="INSERT INTO `assets` (assetNo, type, make, model, associatedTo, Location, patTestDate, imgLocation)
     VALUES (:assetnumber, :type, :make, :model, :user, :location, :pat, :img)";
-}else{
-
+}
+else{
     $sql="INSERT INTO `assets` (assetNo, type, make, model, associatedTo, Location, patTestDate)
     VALUES (:assetnumber, :type, :make, :model, :user, :location, :pat)";
 }

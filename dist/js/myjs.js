@@ -178,8 +178,8 @@ $("#Registerform").submit(function(e){
         url: "/php/register.php",
         data: $(this).serialize()
     }).done(function(data, textStatus, jqXHR ){
+		$("#errorArea").removeClass("alert-danger").addClass("alert-success").html("You Have Registed successfully </br> Login using the form below.").show("slow").delay(2000).hide("slow");
        formSwap('#Registerform','#loginform');
-       $("#errorArea").removeClass("alert-warning").addClass("alert-success").html("You Have Registed successfully </br> Login using the form below.").show("slow").delay(2000).hide("slow");
     }).fail(function(jqXHR, textStatus, errorThrown){
         switch (jqXHR.status) {
             case 409:
@@ -192,13 +192,12 @@ $("#Registerform").submit(function(e){
             errorMsg = "Failed To Register Please Try Again.";
 
         }
-        $("#errorArea").removeClass("alert-success").addClass("alert-warning").html(errorMsg).show("slow").delay(2000).hide("slow");
+        $("#errorArea").removeClass("alert-success").addClass("alert-danger").html(errorMsg).show("slow").delay(2000).hide("slow");
         });
 })
 
 $("#loginform").submit(function(e){
     e.preventDefault();
-    console.log($(this).serialize());
     $.ajax({
         method: "POST",
         url: "/php/login.php",
